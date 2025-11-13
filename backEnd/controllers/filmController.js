@@ -53,7 +53,7 @@ async function getFilm(req, res, next) {
     const film = await Film.findByPk(id, {
       include: { model: Ator, as: "atores", through: { attributes: [] } },
     });
-    if (!film) return res.status(404).json({ error: "Film not found" });
+    if (!film) return res.status(404).json({ error: "Filme não encontrado" });
     res.json(film);
   } catch (err) {
     next(err);
@@ -67,7 +67,7 @@ async function updateFilm(req, res, next) {
     const film = await Film.findByPk(id, { transaction: t });
     if (!film) {
       await t.rollback();
-      return res.status(404).json({ error: "Film not found" });
+      return res.status(404).json({ error: "Filme não encontrado" });
     }
     const { title, age_rating, genre, atorIds, atores } = req.body;
 
@@ -110,7 +110,7 @@ async function deleteFilm(req, res, next) {
   try {
     const id = parseInt(req.params.id, 10);
     const film = await Film.findByPk(id);
-    if (!film) return res.status(404).json({ error: "Film not found" });
+    if (!film) return res.status(404).json({ error: "Filme não encontrado" });
     await film.destroy();
     res.status(204).send();
   } catch (err) {
