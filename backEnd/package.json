@@ -1,0 +1,19 @@
+{
+  "name": "movies-backend",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "seed": "node seed.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "sequelize": "^6.32.0",
+    "sqlite3": "^5.1.6",
+    "express-validator": "^6.15.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}
