@@ -34,16 +34,13 @@ export function MovieList() {
   }, []);
 
   async function handleDeleteFilm(id: number) {
-    console.log("clicou para deletar id:", id);
     try {
-      const response = await axios.delete(
+      await axios.delete(
         `http://localhost:3000/api/films/${id}`
       );
-      console.log("DELETE response:", response.status, response.data);
       setFilms((prev) => prev.filter((film) => film.id !== id));
     } catch (error) {
       console.error("Erro ao deletar filme:", error);
-      alert("Erro ao deletar filme — veja o console/network para detalhes.");
     }
   }
 

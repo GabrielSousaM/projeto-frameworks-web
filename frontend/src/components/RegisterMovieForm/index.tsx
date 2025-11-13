@@ -54,7 +54,6 @@ export function RegisterMovieForm() {
         atores,
       };
 
-      console.log(payload);
 
       await axios.post("http://localhost:3000/api/films", payload);
 
